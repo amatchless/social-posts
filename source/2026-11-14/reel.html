@@ -1,0 +1,81 @@
+<!doctype html><html><head><meta charset=utf-8>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,500;9..40,700&display=swap">
+<style>
+:root{--ink:#0E0B1F;--white:#fff;--yellow:#FFE14D;--purple:#5B2EFF;--lilac:#E9E2FF;--muted:#3A3550;--line:5px solid var(--ink)}
+*{box-sizing:border-box;margin:0}
+body{width:1080px;height:1920px;overflow:hidden;background:var(--purple);font-family:"DM Sans";color:var(--white);position:relative}
+.d{font-family:"Bricolage Grotesque";font-weight:800;letter-spacing:-.04em}
+.sc{position:absolute;inset:0;opacity:0}
+.door{position:absolute;left:190px;top:330px;width:700px;height:1150px;background:var(--white);border:7px solid var(--ink);border-radius:40px 40px 10px 10px;box-shadow:18px 18px 0 var(--ink);transform-origin:left center}
+.door .sign{position:absolute;left:70px;right:70px;top:200px;background:var(--yellow);color:var(--ink);border:var(--line);border-radius:28px;padding:40px 30px;text-align:center;font-size:84px;line-height:.92;transform:rotate(-3deg);box-shadow:8px 8px 0 var(--ink)}
+.door .knob{position:absolute;right:70px;top:600px;width:70px;height:70px;border-radius:50%;background:var(--yellow);border:var(--line)}
+.door .warn{position:absolute;left:70px;right:70px;bottom:120px;color:var(--muted);font:700 40px "DM Sans";text-align:center}
+.zap{position:absolute;left:50%;top:50%;font-size:300px;color:var(--ink);background:var(--yellow);border:9px solid var(--ink);border-radius:60px;padding:10px 70px;box-shadow:20px 20px 0 var(--ink)}
+.burst{position:absolute;left:50%;top:50%;width:1500px;height:1500px;margin:-750px;background:repeating-conic-gradient(rgba(255,225,77,.35) 0 8deg,transparent 8deg 20deg);border-radius:50%}
+.lbl{position:absolute;left:84px;top:200px;font-size:120px;line-height:.9}
+.lbl small{display:block;font:700 38px "DM Sans";letter-spacing:.08em;text-transform:uppercase;opacity:.85;margin-bottom:20px}
+.card{position:absolute;left:84px;right:84px;top:560px;height:900px;background:var(--white);color:var(--ink);border:7px solid var(--ink);border-radius:48px;box-shadow:20px 20px 0 var(--ink);padding:56px;overflow:hidden}
+.bars{display:flex;align-items:flex-end;gap:36px;height:420px;margin-top:60px;border-bottom:6px solid var(--ink);padding:0 20px}
+.bars i{flex:1;border:var(--line);border-bottom:0;border-radius:16px 16px 0 0;background:var(--lilac)}
+.bars i.y{background:var(--yellow)}
+.kpi{display:flex;gap:30px}
+.kpi div{flex:1;border:var(--line);border-radius:28px;padding:26px 30px;font:700 30px "DM Sans";color:var(--muted)}
+.kpi b{display:block;font:800 72px "Bricolage Grotesque";letter-spacing:-.03em;color:var(--ink)}
+.row{display:flex;align-items:center;gap:26px;border:var(--line);border-radius:26px;padding:24px 30px;margin-bottom:26px;font:700 40px "DM Sans"}
+.av{width:72px;height:72px;border-radius:50%;border:var(--line);background:var(--lilac);flex:none}
+.st{margin-left:auto;border:var(--line);border-radius:999px;padding:6px 22px;font:700 28px "DM Sans";background:var(--lilac)}
+.st.y{background:var(--yellow)}
+.prod{display:flex;gap:30px}
+.prod>div{flex:1;border:var(--line);border-radius:30px;overflow:hidden}
+.prod .im{height:330px;background:var(--lilac);border-bottom:var(--line)}
+.prod .im.y{background:var(--yellow)}
+.prod p{padding:22px 26px;font:700 36px "DM Sans"}
+.buy{margin-top:46px;background:var(--ink);color:var(--white);border-radius:999px;text-align:center;padding:30px;font:800 54px "Bricolage Grotesque"}
+.cal{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:40px}
+.cal i{height:120px;border:var(--line);border-radius:20px;font:700 32px "DM Sans";font-style:normal;padding:12px 16px}
+.cal i.y{background:var(--yellow)}
+.cal i.l{background:var(--lilac)}
+.ctitle{font:800 56px "Bricolage Grotesque";letter-spacing:-.03em;margin-bottom:34px}
+.dex{position:absolute;left:160px;top:300px;width:760px}
+.name{position:absolute;left:84px;right:84px;top:1110px}
+.name h1{font-size:150px;line-height:.9}
+.name .role{display:inline-block;margin-top:24px;background:var(--white);color:var(--ink);border:var(--line);border-radius:999px;padding:12px 34px;font:700 38px "DM Sans"}
+.q{position:absolute;left:84px;right:84px;top:1460px;background:var(--yellow);color:var(--ink);border:var(--line);border-radius:36px;box-shadow:10px 10px 0 var(--ink);padding:34px 44px;font:700 46px/1.25 "DM Sans"}
+.lock{position:absolute;left:84px;bottom:110px;display:flex;align-items:center;gap:14px;font:800 46px "Bricolage Grotesque";letter-spacing:-.04em}
+.lock img{width:64px}
+</style></head><body>
+<div class="sc" id="s1"><div class="door" id="door"><div class="sign d">KEEP OUT OF THE LAB</div><div class="knob"></div><div class="warn">Genius at work. Probably.</div></div></div>
+<div class="sc" id="s2"><div class="burst" id="burst"></div><div class="zap d" id="zap">ZAP!</div></div>
+<div class="sc" id="b1"><div class="lbl d"><small>Build 01</small>Dashboards</div><div class="card"><div class="kpi"><div><b>₹4.2L</b>Sales this week</div><div><b>312</b>New leads</div></div><div class="bars"><i style="height:40%"></i><i style="height:55%"></i><i style="height:48%"></i><i style="height:72%"></i><i class="y" style="height:92%"></i></div></div></div>
+<div class="sc" id="b2"><div class="lbl d"><small>Build 02</small>CRMs</div><div class="card"><div class="ctitle">Leads</div><div class="row"><span class="av"></span>New enquiry<span class="st y">Call today</span></div><div class="row"><span class="av"></span>Follow-up<span class="st">Tuesday</span></div><div class="row"><span class="av"></span>Quote sent<span class="st">Waiting</span></div><div class="row"><span class="av"></span>Closed<span class="st y">Won</span></div></div></div>
+<div class="sc" id="b3"><div class="lbl d"><small>Build 03</small>Online stores</div><div class="card"><div class="prod"><div><div class="im y"></div><p>Bestseller</p></div><div><div class="im"></div><p>New in</p></div></div><div class="buy">Add to cart</div></div></div>
+<div class="sc" id="b4"><div class="lbl d"><small>Build 04</small>Booking systems</div><div class="card"><div class="ctitle">This week</div><div class="cal"><i class="l">Mon</i><i>Tue</i><i class="y">Wed</i><i>Thu</i><i class="l">Fri</i><i>10am</i><i class="y">11am</i><i>2pm</i><i class="l">3pm</i><i class="y">5pm</i><i class="y">10am</i><i>12pm</i><i class="l">1pm</i><i>4pm</i><i class="y">6pm</i></div><div class="row" style="margin-top:50px"><span class="av" style="background:var(--yellow)"></span>New booking: Wed, 11am<span class="st y">Confirmed</span></div></div></div>
+<div class="sc" id="s5"><img class="dex" id="dex" src="dexter.svg"><div class="name"><h1 class="d">Dexter</h1><span class="role">Director of Technology</span></div><div class="q" id="q">"A product page that loads before you can blink."</div></div>
+<div class="lock"><img src="monogram-white.png">amatchless.</div>
+<script>
+const $=id=>document.getElementById(id);
+const cl=(x)=>Math.max(0,Math.min(1,x));
+const eo=x=>1-Math.pow(1-x,3);
+const back=x=>{const c=1.7;x=x-1;return 1+(c+1)*x*x*x+c*x*x};
+function vis(el,t,a,b,f=.25){el.style.opacity=(t>=a&&t<b)?Math.min(cl((t-a)/f),cl((b-t)/f)):0}
+window.R=function(t){
+ // door 0-3.2
+ vis($('s1'),t,0,3.4,.3);
+ const sh=t>1.6&&t<2.8?Math.sin(t*60)*6:0;
+ const op=cl((t-2.8)/.5);
+ $('door').style.transform=`translateX(${sh}px) perspective(1600px) rotateY(${-op*85}deg)`;
+ // zap 3-5
+ vis($('s2'),t,3.0,5.2,.15);
+ const z=cl((t-3.0)/.45);
+ $('zap').style.transform=`translate(-50%,-50%) rotate(-8deg) scale(${back(z)})`;
+ $('burst').style.transform=`rotate(${t*40}deg) scale(${.6+eo(z)*.5})`;
+ const B=[['b1',5.2],['b2',8.9],['b3',12.6],['b4',16.3]];
+ for(const [id,s] of B){const el=$(id);vis(el,t,s,s+3.7,.12);const k=cl((t-s)/.45);
+  el.querySelector('.card').style.transform=`translateY(${(1-back(k))*500}px) rotate(${(1-eo(k))*-6}deg)`;
+  el.querySelector('.lbl').style.transform=`translateX(${(1-eo(cl((t-s)/.35)))*-300}px)`;}
+ vis($('s5'),t,20.0,99,.2);
+ const dk=cl((t-20)/.5);$('dex').style.transform=`scale(${.7+back(dk)*.3})`;
+ const qk=cl((t-21)/.4);$('q').style.transform=`translateY(${(1-eo(qk))*120}px)`;$('q').style.opacity=qk;
+}
+R(0);
+</script></body></html>
